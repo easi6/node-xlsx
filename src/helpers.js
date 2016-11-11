@@ -33,6 +33,8 @@ const buildSheetFromMatrix = (data, options = {}) => {
         cell.t = 'n';
         cell.v = buildExcelDate(cell.v);
         cell.z = XLSX.SSF._table[14]; // eslint-disable-line no-underscore-dangle
+      } else if (cell.v instanceof Object) {
+        cell = cell.v
       } else {
         cell.t = 's';
       }
